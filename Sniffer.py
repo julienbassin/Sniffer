@@ -15,5 +15,6 @@ s.ioctl(socket.SIO_RCVALL,socket.RCVALL_ON)
 while True:
        packet = s.recvfrom(buf)
        dest_mac, src_mac, proto = struct.unpack('! 6s 6s H', packet[0][:14])
-       bytes_str = map("{:02x} {:02x} {:02x}".format, dest_mac, src_mac, proto)
+       bytes_str = map("{:02x}".format, dest_mac)
+       print(bytes_str)
        #print('{} {}'.format(binascii.hexlify(hdr[0]), binascii.hexlify(hdr[1])))
